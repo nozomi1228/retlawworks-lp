@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja" data-theme="light">
+<html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,36 +24,18 @@
       font-display: swap;
     }
 
-    :root { --transition-theme: 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
-
-    [data-theme="light"] {
-      --bg-primary: #f5f0eb; --bg-secondary: #faf7f3; --bg-tertiary: #ede8e1;
-      --bg-card: #faf7f3; --bg-card-hover: #f0ebe4;
-      --bg-highlight: linear-gradient(135deg, #f8f6f0, #fdfcfa);
+    :root {
+      --bg-primary: #e8e3db; --bg-secondary: #f0ece5; --bg-tertiary: #dedad3;
+      --bg-card: #f0ece5; --bg-card-hover: #e4dfd7;
+      --bg-highlight: linear-gradient(135deg, #edead4, #f5f2ec);
       --text-primary: #1a1a1a; --text-secondary: #4a4a4a;
       --text-muted: #888888; --text-dim: #aaaaaa;
       --accent: #8b7355; --accent-light: #a68b6b;
       --accent-dim: rgba(139, 115, 85, 0.08); --accent-glow: rgba(139, 115, 85, 0.15);
       --border: rgba(0, 0, 0, 0.06); --border-accent: rgba(139, 115, 85, 0.2);
-      --header-bg: rgba(245, 240, 235, 0.88); --loader-bg: #f5f0eb;
+      --header-bg: rgba(232, 227, 219, 0.92); --loader-bg: #e8e3db;
       --illustration-stroke: #c4b5a0; --illustration-fill: rgba(139, 115, 85, 0.05);
-      --toggle-bg: #e8e8e8; --toggle-knob: #ffffff;
       --shadow-sm: 0 1px 3px rgba(0,0,0,0.04); --shadow-md: 0 4px 20px rgba(0,0,0,0.06);
-    }
-
-    [data-theme="dark"] {
-      --bg-primary: #060d18; --bg-secondary: #0a1628; --bg-tertiary: #0f1f3a;
-      --bg-card: #0a1628; --bg-card-hover: #0f1f3a;
-      --bg-highlight: linear-gradient(135deg, #0f1f3a, #162a4a);
-      --text-primary: #f0f0f0; --text-secondary: #a8b2c1;
-      --text-muted: #6b7a90; --text-dim: #4a5568;
-      --accent: #c9a84c; --accent-light: #e2c97e;
-      --accent-dim: rgba(201, 168, 76, 0.1); --accent-glow: rgba(201, 168, 76, 0.2);
-      --border: rgba(255, 255, 255, 0.05); --border-accent: rgba(201, 168, 76, 0.15);
-      --header-bg: rgba(6, 13, 24, 0.88); --loader-bg: #060d18;
-      --illustration-stroke: rgba(201, 168, 76, 0.3); --illustration-fill: rgba(201, 168, 76, 0.03);
-      --toggle-bg: #1a2744; --toggle-knob: #c9a84c;
-      --shadow-sm: 0 1px 3px rgba(0,0,0,0.2); --shadow-md: 0 4px 20px rgba(0,0,0,0.3);
     }
 
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -62,7 +44,6 @@
       font-family: 'Glacial Indifference', 'Noto Sans JP', sans-serif;
       background-color: var(--bg-primary); color: var(--text-primary);
       line-height: 1.8; font-weight: 400; overflow-x: hidden;
-      transition: background-color var(--transition-theme), color var(--transition-theme);
     }
 
     /* LOADER */
@@ -85,12 +66,12 @@
     nav a:hover { color: var(--text-primary); }
     nav a:hover::after { width: 100%; }
     .nav-en { font-size: 0.6rem; color: var(--text-dim); margin-left: 0.3rem; }
+    nav a.nav-cta { color: var(--bg-primary); background: var(--accent); padding: 0.5rem 1.1rem; border-radius: 2px; transition: background 0.3s ease, transform 0.2s ease; }
+    nav a.nav-cta::after { display: none; }
+    nav a.nav-cta:hover { background: var(--accent-light); color: var(--bg-primary); transform: translateY(-1px); }
+    nav a.nav-cta .nav-en { color: rgba(255,255,255,0.55); }
 
-    .theme-toggle { width: 44px; height: 22px; background: var(--toggle-bg); border-radius: 11px; border: none; cursor: pointer; position: relative; transition: background var(--transition-theme); flex-shrink: 0; }
-    .theme-toggle::after { content: ''; position: absolute; top: 3px; left: 3px; width: 16px; height: 16px; background: var(--toggle-knob); border-radius: 50%; transition: transform 0.3s ease, background var(--transition-theme); box-shadow: 0 1px 3px rgba(0,0,0,0.2); }
-    [data-theme="dark"] .theme-toggle::after { transform: translateX(22px); }
-
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; z-index: 1001; }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; z-index: 1001; }
     .hamburger span { display: block; width: 22px; height: 1px; background: var(--text-primary); transition: all 0.3s ease; }
     .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
     .hamburger.active span:nth-child(2) { opacity: 0; }
@@ -239,9 +220,8 @@
     <nav>
       <a href="#solutions">できること <span class="nav-en">Solutions</span></a>
       <a href="#flow">ご相談の流れ <span class="nav-en">Flow</span></a>
-      <a href="#cta">まずは相談する <span class="nav-en">Contact</span></a>
+      <a href="#cta" class="nav-cta">まずは相談する <span class="nav-en">Contact</span></a>
     </nav>
-    <button class="theme-toggle" id="themeToggle" aria-label="テーマ切り替え"></button>
     <button class="hamburger" aria-label="メニュー"><span></span><span></span><span></span></button>
   </div>
 </header>
@@ -316,6 +296,9 @@
   </div>
 </section>
 
+<!-- =====================================================================
+  [Voice] お客様の声 — 実績取得後に公開予定。現時点ではコメントアウト。
+  =====================================================================
 <section id="voice">
   <div class="reveal"><p class="section-label">Voice</p><h2 class="section-heading">ご利用いただいた方の声</h2></div>
   <div class="voice-grid">
@@ -339,6 +322,7 @@
     </div>
   </div>
 </section>
+===================================================================== -->
 
 <section id="flow">
   <div class="reveal"><p class="section-label">Flow</p><h2 class="section-heading">3ステップで、明日の一手が見えてきます。</h2></div>
@@ -367,9 +351,6 @@
 <script>
 window.addEventListener('load',()=>{setTimeout(()=>document.getElementById('loader').classList.add('hidden'),1600)});
 window.addEventListener('scroll',()=>{document.getElementById('header').classList.toggle('scrolled',window.scrollY>50)});
-const toggle=document.getElementById('themeToggle'),html=document.documentElement;
-const saved=localStorage.getItem('theme');if(saved)html.setAttribute('data-theme',saved);
-toggle.addEventListener('click',()=>{const c=html.getAttribute('data-theme'),n=c==='light'?'dark':'light';html.setAttribute('data-theme',n);localStorage.setItem('theme',n)});
 const hamburger=document.querySelector('.hamburger'),mobileNav=document.getElementById('mobileNav');
 hamburger.addEventListener('click',()=>{hamburger.classList.toggle('active');mobileNav.classList.toggle('open');document.body.style.overflow=mobileNav.classList.contains('open')?'hidden':''});
 function closeMobileNav(){hamburger.classList.remove('active');mobileNav.classList.remove('open');document.body.style.overflow=''}
