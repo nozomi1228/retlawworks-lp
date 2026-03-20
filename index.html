@@ -26,17 +26,17 @@
     }
 
     :root {
-      --bg-primary: #e8e3db; --bg-secondary: #f0ece5; --bg-tertiary: #dedad3;
-      --bg-card: #f0ece5; --bg-card-hover: #e4dfd7;
-      --bg-highlight: linear-gradient(135deg, #edead4, #f5f2ec);
-      --text-primary: #1a1a1a; --text-secondary: #333333;
-      --text-muted: #606060; --text-dim: #808080;
+      --bg-primary: #eee9e1; --bg-secondary: #f4f1eb; --bg-tertiary: #e6e2da;
+      --bg-card: #f4f1eb; --bg-card-hover: #eae5dd;
+      --bg-highlight: linear-gradient(135deg, #f1eee8, #f8f5f0);
+      --text-primary: #1a1a1a; --text-secondary: #282828;
+      --text-muted: #484848; --text-dim: #5a5a5a;
       --accent: #8b7355; --accent-light: #a68b6b;
       --accent-dim: rgba(139, 115, 85, 0.08); --accent-glow: rgba(139, 115, 85, 0.15);
-      --border: rgba(0, 0, 0, 0.06); --border-accent: rgba(139, 115, 85, 0.2);
-      --header-bg: rgba(232, 227, 219, 0.92); --loader-bg: #e8e3db;
-      --illustration-stroke: #c4b5a0; --illustration-fill: rgba(139, 115, 85, 0.05);
-      --shadow-sm: 0 1px 3px rgba(0,0,0,0.04); --shadow-md: 0 4px 20px rgba(0,0,0,0.06);
+      --border: rgba(0, 0, 0, 0.07); --border-accent: rgba(139, 115, 85, 0.2);
+      --header-bg: rgba(238, 233, 225, 0.92); --loader-bg: #eee9e1;
+      --illustration-stroke: #b0a090; --illustration-fill: rgba(139, 115, 85, 0.05);
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.05); --shadow-md: 0 4px 20px rgba(0,0,0,0.07);
     }
 
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -171,6 +171,8 @@
 
     /* FLOW */
     #flow { border-top: 1px solid var(--border); }
+    .flow-wrapper { display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: center; }
+    .flow-illustration { display: flex; align-items: center; justify-content: center; opacity: 0.85; }
     .flow-steps { display: flex; flex-direction: column; }
     .flow-step { display: grid; grid-template-columns: 70px 1fr; gap: 2rem; padding: 2.5rem 0; border-bottom: 1px solid var(--border); align-items: start; }
     .flow-number { font-family: 'Glacial Indifference', sans-serif; font-size: 2.5rem; font-weight: 700; color: var(--accent); opacity: 0.25; line-height: 1; }
@@ -179,8 +181,14 @@
     .flow-step-desc { font-family: 'Noto Sans JP', sans-serif; font-size: 0.82rem; font-weight: 300; color: var(--text-secondary); line-height: 1.9; }
     .flow-micro { font-family: 'Noto Sans JP', sans-serif; font-size: 0.68rem; color: var(--text-dim); margin-top: 0.8rem; line-height: 1.6; }
 
+    /* VOICE deco */
+    .voice-header { display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: start; margin-bottom: 3rem; }
+    .voice-header .section-heading { margin-bottom: 0; }
+    .voice-deco { flex-shrink: 0; opacity: 0.85; }
+
     /* CTA */
     #cta { border-top: 1px solid var(--border); text-align: center; padding: 8rem 2.5rem; }
+    .cta-deco { display: flex; justify-content: center; margin-bottom: 2.5rem; opacity: 0.7; }
     .cta-heading { font-family: 'Noto Sans JP', sans-serif; font-size: clamp(1.3rem, 3.2vw, 1.7rem); font-weight: 500; color: var(--text-primary); margin-bottom: 2rem; line-height: 1.7; transition: color var(--transition-theme); }
     .cta-text { font-family: 'Noto Sans JP', sans-serif; font-size: 0.85rem; font-weight: 300; color: var(--text-secondary); line-height: 2; max-width: 520px; margin: 0 auto 3rem; }
     .cta-micro { font-family: 'Noto Sans JP', sans-serif; font-size: 0.65rem; color: var(--text-dim); margin-top: 1rem; }
@@ -204,7 +212,9 @@
       .solution-main { padding: 2rem 1.5rem; grid-template-columns: 1fr; } .solution-main-illust { display: none; }
       .solution-grid { grid-template-columns: 1fr; }
       .about-content { grid-template-columns: 1fr; } .about-illust { display: none; }
+      .flow-wrapper { display: block; } .flow-illustration { display: none; }
       .flow-step { grid-template-columns: 50px 1fr; gap: 1rem; padding: 2rem 0; } .flow-number { font-size: 2rem; }
+      .voice-header { grid-template-columns: 1fr; } .voice-deco { display: none; }
       .voice-grid { grid-template-columns: 1fr; }
       .footer-inner { flex-direction: column; text-align: center; }
       .hero-deco { display: none; }
@@ -298,7 +308,30 @@
 </section>
 
 <section id="voice">
-  <div class="reveal"><p class="section-label">Voice</p><h2 class="section-heading">ご利用いただいた方の声</h2></div>
+  <div class="voice-header reveal">
+    <div><p class="section-label">Voice</p><h2 class="section-heading">ご利用いただいた方の声</h2></div>
+    <svg class="voice-deco" width="190" height="165" viewBox="0 0 190 165" fill="none">
+      <!-- Bubble 1 (large, left) -->
+      <rect x="10" y="10" width="115" height="72" rx="7" stroke="var(--illustration-stroke)" stroke-width="0.7" fill="var(--illustration-fill)" opacity="0.42"/>
+      <!-- Content lines in bubble 1 -->
+      <line x1="26" y1="34" x2="106" y2="34" stroke="var(--illustration-stroke)" stroke-width="0.5" opacity="0.3"/>
+      <line x1="26" y1="48" x2="86" y2="48" stroke="var(--illustration-stroke)" stroke-width="0.5" opacity="0.25"/>
+      <line x1="26" y1="62" x2="96" y2="62" stroke="var(--illustration-stroke)" stroke-width="0.5" opacity="0.2"/>
+      <!-- Bubble 2 (right, accent) -->
+      <rect x="62" y="96" width="118" height="55" rx="7" stroke="var(--accent)" stroke-width="0.7" fill="var(--illustration-fill)" opacity="0.35"/>
+      <!-- Stars inside bubble 2 -->
+      <circle cx="90" cy="124" r="3.5" fill="var(--accent)" opacity="0.38"/>
+      <circle cx="104" cy="124" r="3.5" fill="var(--accent)" opacity="0.38"/>
+      <circle cx="118" cy="124" r="3.5" fill="var(--accent)" opacity="0.38"/>
+      <circle cx="132" cy="124" r="3.5" fill="var(--accent)" opacity="0.38"/>
+      <circle cx="146" cy="124" r="3.5" fill="var(--accent)" opacity="0.28"/>
+      <!-- Connector dot -->
+      <circle cx="66" cy="88" r="3" fill="var(--illustration-stroke)" opacity="0.2"/>
+      <!-- Floating accent elements -->
+      <circle cx="5" cy="130" r="2" fill="var(--accent)" opacity="0.15"/>
+      <circle cx="185" cy="42" r="2" fill="var(--illustration-stroke)" opacity="0.15"/>
+    </svg>
+  </div>
   <div class="voice-grid">
     <div class="voice-card reveal reveal-delay-1">
       <p class="voice-industry">Italian Restaurant</p><p class="voice-stars">★★★★★</p>
@@ -323,15 +356,62 @@
 
 <section id="flow">
   <div class="reveal"><p class="section-label">Flow</p><h2 class="section-heading">3ステップで、明日の一手が見えてきます。</h2></div>
-  <div class="flow-steps">
-    <div class="flow-step reveal"><div class="flow-number">01</div><div><p class="flow-step-label">Contact</p><h3 class="flow-step-title">まずはメッセージを送る</h3><p class="flow-step-desc">ココナラから「相談希望」と送るだけ。テンプレートは不要です。<br>何を相談していいかわからない状態でも問題ありません。</p><p class="flow-micro">※決済の安全性とやり取りの透明性を担保するため、国内最大級のスキルマーケット「ココナラ」のシステムを利用しています。</p></div></div>
-    <div class="flow-step reveal reveal-delay-1"><div class="flow-number">02</div><div><p class="flow-step-label">Session</p><h3 class="flow-step-title">60分の課題整理カウンセリング</h3><p class="flow-step-desc">現状の課題をヒアリングし、あなたのお店専用の「アクションプラン」を作成します。<br>専門知識は一切不要です。</p></div></div>
-    <div class="flow-step reveal reveal-delay-2"><div class="flow-number">03</div><div><p class="flow-step-label">Clear</p><h3 class="flow-step-title">まず何をすべきかが明確に</h3><p class="flow-step-desc">カウンセリング後には「明日、まず何から手をつけるべきか」がクリアになります。<br>その上で、必要なサポートがあればご提案します。無理に進めることはありません。</p></div></div>
+  <div class="flow-wrapper">
+    <div class="flow-steps">
+      <div class="flow-step reveal"><div class="flow-number">01</div><div><p class="flow-step-label">Contact</p><h3 class="flow-step-title">まずはメッセージを送る</h3><p class="flow-step-desc">ココナラから「相談希望」と送るだけ。テンプレートは不要です。<br>何を相談していいかわからない状態でも問題ありません。</p><p class="flow-micro">※決済の安全性とやり取りの透明性を担保するため、国内最大級のスキルマーケット「ココナラ」のシステムを利用しています。</p></div></div>
+      <div class="flow-step reveal reveal-delay-1"><div class="flow-number">02</div><div><p class="flow-step-label">Session</p><h3 class="flow-step-title">60分の課題整理カウンセリング</h3><p class="flow-step-desc">現状の課題をヒアリングし、あなたのお店専用の「アクションプラン」を作成します。<br>専門知識は一切不要です。</p></div></div>
+      <div class="flow-step reveal reveal-delay-2"><div class="flow-number">03</div><div><p class="flow-step-label">Clear</p><h3 class="flow-step-title">まず何をすべきかが明確に</h3><p class="flow-step-desc">カウンセリング後には「明日、まず何から手をつけるべきか」がクリアになります。<br>その上で、必要なサポートがあればご提案します。無理に進めることはありません。</p></div></div>
+    </div>
+    <div class="flow-illustration reveal">
+      <svg width="130" height="320" viewBox="0 0 130 320" fill="none">
+        <!-- Vertical spine -->
+        <line x1="45" y1="30" x2="45" y2="290" stroke="var(--illustration-stroke)" stroke-width="0.5" opacity="0.22"/>
+        <!-- Node 01 (accent) -->
+        <circle cx="45" cy="60" r="13" stroke="var(--accent)" stroke-width="0.8" fill="var(--illustration-fill)" opacity="0.65"/>
+        <circle cx="45" cy="60" r="4" fill="var(--accent)" opacity="0.55"/>
+        <line x1="58" y1="55" x2="95" y2="42" stroke="var(--illustration-stroke)" stroke-width="0.4" stroke-dasharray="4 3" opacity="0.3"/>
+        <line x1="58" y1="65" x2="95" y2="72" stroke="var(--illustration-stroke)" stroke-width="0.4" stroke-dasharray="4 3" opacity="0.2"/>
+        <!-- Node 02 -->
+        <circle cx="45" cy="160" r="13" stroke="var(--illustration-stroke)" stroke-width="0.8" fill="var(--illustration-fill)" opacity="0.42"/>
+        <circle cx="45" cy="160" r="4" fill="var(--illustration-stroke)" opacity="0.35"/>
+        <line x1="58" y1="155" x2="95" y2="144" stroke="var(--illustration-stroke)" stroke-width="0.4" stroke-dasharray="4 3" opacity="0.25"/>
+        <line x1="58" y1="165" x2="95" y2="172" stroke="var(--illustration-stroke)" stroke-width="0.4" stroke-dasharray="4 3" opacity="0.18"/>
+        <!-- Node 03 -->
+        <circle cx="45" cy="260" r="13" stroke="var(--illustration-stroke)" stroke-width="0.8" fill="var(--illustration-fill)" opacity="0.42"/>
+        <circle cx="45" cy="260" r="4" fill="var(--illustration-stroke)" opacity="0.35"/>
+        <line x1="58" y1="255" x2="95" y2="245" stroke="var(--illustration-stroke)" stroke-width="0.4" stroke-dasharray="4 3" opacity="0.25"/>
+        <line x1="58" y1="265" x2="95" y2="272" stroke="var(--illustration-stroke)" stroke-width="0.4" stroke-dasharray="4 3" opacity="0.18"/>
+        <!-- Grid reference lines (left) -->
+        <line x1="8" y1="60" x2="32" y2="60" stroke="var(--illustration-stroke)" stroke-width="0.3" opacity="0.15"/>
+        <line x1="8" y1="160" x2="32" y2="160" stroke="var(--illustration-stroke)" stroke-width="0.3" opacity="0.15"/>
+        <line x1="8" y1="260" x2="32" y2="260" stroke="var(--illustration-stroke)" stroke-width="0.3" opacity="0.15"/>
+        <!-- Decorative floating dots -->
+        <circle cx="112" cy="105" r="2" fill="var(--accent)" opacity="0.2"/>
+        <circle cx="14" cy="200" r="1.5" fill="var(--illustration-stroke)" opacity="0.2"/>
+        <circle cx="118" cy="225" r="2" fill="var(--illustration-stroke)" opacity="0.15"/>
+      </svg>
+    </div>
   </div>
 </section>
 
 <section id="cta">
   <div class="reveal"><h2 class="cta-heading">まずは一度、<br>お店の課題を整理してみませんか？</h2></div>
+  <div class="cta-deco reveal">
+    <svg width="180" height="70" viewBox="0 0 180 70" fill="none">
+      <!-- Converging lines toward focal point -->
+      <line x1="0" y1="0" x2="90" y2="65" stroke="var(--illustration-stroke)" stroke-width="0.4" opacity="0.14"/>
+      <line x1="40" y1="0" x2="90" y2="65" stroke="var(--illustration-stroke)" stroke-width="0.4" opacity="0.14"/>
+      <line x1="90" y1="0" x2="90" y2="65" stroke="var(--illustration-stroke)" stroke-width="0.4" opacity="0.14"/>
+      <line x1="140" y1="0" x2="90" y2="65" stroke="var(--illustration-stroke)" stroke-width="0.4" opacity="0.14"/>
+      <line x1="180" y1="0" x2="90" y2="65" stroke="var(--illustration-stroke)" stroke-width="0.4" opacity="0.14"/>
+      <!-- Focal point -->
+      <circle cx="90" cy="65" r="6" stroke="var(--accent)" stroke-width="0.7" fill="var(--illustration-fill)" opacity="0.55"/>
+      <circle cx="90" cy="65" r="2" fill="var(--accent)" opacity="0.5"/>
+      <!-- Horizontal guide lines -->
+      <line x1="20" y1="22" x2="60" y2="22" stroke="var(--illustration-stroke)" stroke-width="0.3" opacity="0.1"/>
+      <line x1="120" y1="22" x2="160" y2="22" stroke="var(--illustration-stroke)" stroke-width="0.3" opacity="0.1"/>
+    </svg>
+  </div>
   <p class="cta-text reveal">"何から始めればいいかわからない"——その段階がベストタイミングです。<br>現在の状態がどれだけ整理されていなくても、気にせずそのままご相談ください。<br>60分のカウンセリングで、あなたのお店専用のアクションプランをお作りします。<br><br>現在、初回お試し価格 <strong>2,000円</strong> でご提供中です。</p>
   <div class="reveal"><a href="https://coconala.com/services/4098737?ref=top_histories&ref_kind=home&ref_no=1" class="cta-btn" target="_blank" rel="noopener noreferrer">相談してみる <span class="cta-arrow">→</span></a><p class="cta-micro">※安全でスムーズな決済のため、外部プラットフォーム（ココナラ）を使用します。</p></div>
 </section>
