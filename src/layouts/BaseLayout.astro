@@ -22,8 +22,46 @@ const {
     rel="stylesheet"
   />
   <link rel="icon" type="image/png" href="/favicon.png" />
+  <style>
+    @keyframes loaderFadeIn  { to { opacity: 1; } }
+    @keyframes loaderExpand  { to { width: 80px; } }
+    @keyframes loaderFadeOut { to { opacity: 0; visibility: hidden; } }
+
+    #page-loader {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      background: #eee9e1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.5s ease;
+    }
+    #page-loader .loader-logo {
+      font-family: 'Glacial Indifference', 'Georgia', serif;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      color: #8b7355;
+      opacity: 0;
+      animation: loaderFadeIn 0.6s 0.2s ease forwards;
+    }
+    #page-loader .loader-line {
+      width: 0;
+      height: 1px;
+      background: #8b7355;
+      margin: 1rem auto 0;
+      animation: loaderExpand 0.8s 0.5s ease forwards;
+    }
+  </style>
 </head>
 <body>
+  <div id="page-loader">
+    <div style="text-align:center">
+      <div class="loader-logo">RetlawWorks</div>
+      <div class="loader-line"></div>
+    </div>
+  </div>
   <slot />
 </body>
 </html>

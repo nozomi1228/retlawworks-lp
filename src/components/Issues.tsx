@@ -46,36 +46,36 @@ export default function Issues() {
 
           {/* チェックリスト ノートイラスト */}
           <div className="reveal issues-illust" style={{ paddingTop: '3.5rem' }}>
-            <svg width="180" height="230" viewBox="0 0 200 250" fill="none">
+            <svg width="260" height="330" viewBox="0 0 200 250" fill="none">
               {/* ノート表紙 */}
-              <rect x="28" y="18" width="144" height="210" rx="4" stroke="var(--illustration-stroke)" strokeWidth="1" fill="var(--illustration-fill)" opacity="0.45" />
+              <rect x="28" y="18" width="144" height="210" rx="4" stroke="var(--illustration-stroke)" strokeWidth="1.5" fill="var(--illustration-fill)" opacity="0.7" />
               {/* 上部ライン */}
-              <line x1="28" y1="50" x2="172" y2="50" stroke="var(--illustration-stroke)" strokeWidth="0.5" opacity="0.25" />
+              <line x1="28" y1="50" x2="172" y2="50" stroke="var(--illustration-stroke)" strokeWidth="1" opacity="0.5" />
               {/* スパイラル綴じ */}
-              <circle cx="72"  cy="18" r="5" stroke="var(--illustration-stroke)" strokeWidth="0.8" fill="none" opacity="0.3" />
-              <circle cx="100" cy="18" r="5" stroke="var(--illustration-stroke)" strokeWidth="0.8" fill="none" opacity="0.3" />
-              <circle cx="128" cy="18" r="5" stroke="var(--illustration-stroke)" strokeWidth="0.8" fill="none" opacity="0.3" />
+              <circle cx="72"  cy="18" r="5" stroke="var(--accent)" strokeWidth="1.2" fill="none" opacity="0.6" />
+              <circle cx="100" cy="18" r="5" stroke="var(--accent)" strokeWidth="1.2" fill="none" opacity="0.6" />
+              <circle cx="128" cy="18" r="5" stroke="var(--accent)" strokeWidth="1.2" fill="none" opacity="0.6" />
               {/* アイテム1: 未チェック */}
-              <rect x="46" y="63" width="13" height="13" rx="1.5" stroke="var(--illustration-stroke)" strokeWidth="0.8" fill="none" opacity="0.4" />
-              <line x1="67" y1="69" x2="158" y2="69" stroke="var(--illustration-stroke)" strokeWidth="0.8" opacity="0.3" />
+              <rect x="46" y="63" width="13" height="13" rx="1.5" stroke="var(--illustration-stroke)" strokeWidth="1.2" fill="none" opacity="0.65" />
+              <line x1="67" y1="69" x2="158" y2="69" stroke="var(--illustration-stroke)" strokeWidth="1" opacity="0.5" />
               {/* アイテム2: チェック済み（accent） */}
-              <rect x="46" y="90" width="13" height="13" rx="1.5" stroke="var(--accent)" strokeWidth="0.9" fill="rgba(139,115,85,0.08)" opacity="0.7" />
-              <polyline points="49,97 54,103 62,91" stroke="var(--accent)" strokeWidth="1.3" fill="none" opacity="0.75" />
-              <line x1="67" y1="96" x2="158" y2="96" stroke="var(--illustration-stroke)" strokeWidth="0.8" opacity="0.3" />
+              <rect x="46" y="90" width="13" height="13" rx="1.5" stroke="var(--accent)" strokeWidth="1.5" fill="rgba(139,115,85,0.12)" opacity="0.9" />
+              <polyline points="49,97 54,103 62,91" stroke="var(--accent)" strokeWidth="1.8" fill="none" opacity="0.95" />
+              <line x1="67" y1="96" x2="158" y2="96" stroke="var(--illustration-stroke)" strokeWidth="1" opacity="0.5" />
               {/* アイテム3: 未チェック */}
-              <rect x="46" y="117" width="13" height="13" rx="1.5" stroke="var(--illustration-stroke)" strokeWidth="0.8" fill="none" opacity="0.4" />
-              <line x1="67" y1="123" x2="148" y2="123" stroke="var(--illustration-stroke)" strokeWidth="0.8" opacity="0.25" />
+              <rect x="46" y="117" width="13" height="13" rx="1.5" stroke="var(--illustration-stroke)" strokeWidth="1.2" fill="none" opacity="0.65" />
+              <line x1="67" y1="123" x2="148" y2="123" stroke="var(--illustration-stroke)" strokeWidth="1" opacity="0.45" />
               {/* アイテム4: 未チェック */}
-              <rect x="46" y="144" width="13" height="13" rx="1.5" stroke="var(--illustration-stroke)" strokeWidth="0.8" fill="none" opacity="0.4" />
-              <line x1="67" y1="150" x2="155" y2="150" stroke="var(--illustration-stroke)" strokeWidth="0.8" opacity="0.22" />
+              <rect x="46" y="144" width="13" height="13" rx="1.5" stroke="var(--illustration-stroke)" strokeWidth="1.2" fill="none" opacity="0.65" />
+              <line x1="67" y1="150" x2="155" y2="150" stroke="var(--illustration-stroke)" strokeWidth="1" opacity="0.4" />
               {/* アイテム5: 未チェック */}
-              <rect x="46" y="171" width="13" height="13" rx="1.5" stroke="var(--illustration-stroke)" strokeWidth="0.8" fill="none" opacity="0.35" />
-              <line x1="67" y1="177" x2="150" y2="177" stroke="var(--illustration-stroke)" strokeWidth="0.8" opacity="0.2" />
+              <rect x="46" y="171" width="13" height="13" rx="1.5" stroke="var(--illustration-stroke)" strokeWidth="1.2" fill="none" opacity="0.6" />
+              <line x1="67" y1="177" x2="150" y2="177" stroke="var(--illustration-stroke)" strokeWidth="1" opacity="0.38" />
               {/* 時計（右下） */}
-              <circle cx="148" cy="210" r="16" stroke="var(--accent)" strokeWidth="0.9" fill="var(--illustration-fill)" opacity="0.5" />
-              <line x1="148" y1="210" x2="148" y2="199" stroke="var(--accent)" strokeWidth="1.1" opacity="0.55" />
-              <line x1="148" y1="210" x2="157" y2="216" stroke="var(--accent)" strokeWidth="1.1" opacity="0.55" />
-              <circle cx="148" cy="210" r="2" fill="var(--accent)" opacity="0.5" />
+              <circle cx="148" cy="210" r="16" stroke="var(--accent)" strokeWidth="1.5" fill="var(--illustration-fill)" opacity="0.75" />
+              <line x1="148" y1="210" x2="148" y2="199" stroke="var(--accent)" strokeWidth="1.8" opacity="0.8" />
+              <line x1="148" y1="210" x2="157" y2="216" stroke="var(--accent)" strokeWidth="1.8" opacity="0.8" />
+              <circle cx="148" cy="210" r="2" fill="var(--accent)" opacity="0.8" />
             </svg>
           </div>
         </div>

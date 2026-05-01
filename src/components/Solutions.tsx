@@ -14,34 +14,34 @@ const cards = [
 /* タブレット＋ダッシュボード SVG（イラスト左、テキスト右） */
 function TabletSVG() {
   return (
-    <svg viewBox="0 0 160 200" fill="none" style={{ width: '160px', height: '200px', flexShrink: 0 }}>
+    <svg viewBox="0 0 160 200" fill="none" style={{ width: 'clamp(220px, 28vw, 340px)', height: 'auto', flexShrink: 0 }}>
       {/* タブレット本体 */}
-      <rect x="15" y="8" width="130" height="174" rx="10" stroke="var(--accent)" strokeWidth="1.2" fill="var(--illustration-fill)" opacity="0.55" />
+      <rect x="15" y="8" width="130" height="174" rx="10" stroke="var(--accent)" strokeWidth="1.8" fill="var(--illustration-fill)" opacity="0.85" />
       {/* スクリーン */}
-      <rect x="23" y="22" width="114" height="140" rx="3" stroke="var(--illustration-stroke)" strokeWidth="0.5" fill="rgba(244,241,235,0.4)" opacity="0.5" />
+      <rect x="23" y="22" width="114" height="140" rx="3" stroke="var(--illustration-stroke)" strokeWidth="1" fill="rgba(244,241,235,0.4)" opacity="0.75" />
       {/* ホームボタン */}
-      <circle cx="80" cy="174" r="6" stroke="var(--illustration-stroke)" strokeWidth="0.7" fill="none" opacity="0.35" />
+      <circle cx="80" cy="174" r="6" stroke="var(--illustration-stroke)" strokeWidth="1.2" fill="none" opacity="0.6" />
       {/* カレンダーアイコン */}
-      <rect x="32" y="32" width="36" height="34" rx="2" stroke="var(--accent)" strokeWidth="0.9" fill="var(--illustration-fill)" opacity="0.55" />
-      <line x1="32" y1="42" x2="68" y2="42" stroke="var(--accent)" strokeWidth="0.7" opacity="0.45" />
-      <line x1="44" y1="32" x2="44" y2="42" stroke="var(--accent)" strokeWidth="0.7" opacity="0.4" />
-      <line x1="56" y1="32" x2="56" y2="42" stroke="var(--accent)" strokeWidth="0.7" opacity="0.4" />
-      <rect x="36" y="48" width="6" height="6" stroke="var(--illustration-stroke)" strokeWidth="0.6" fill="none" opacity="0.4" />
-      <rect x="47" y="48" width="6" height="6" stroke="var(--illustration-stroke)" strokeWidth="0.6" fill="none" opacity="0.4" />
-      <rect x="58" y="48" width="6" height="6" stroke="var(--illustration-stroke)" strokeWidth="0.6" fill="none" opacity="0.4" />
+      <rect x="32" y="32" width="36" height="34" rx="2" stroke="var(--accent)" strokeWidth="1.5" fill="var(--illustration-fill)" opacity="0.8" />
+      <line x1="32" y1="42" x2="68" y2="42" stroke="var(--accent)" strokeWidth="1.2" opacity="0.7" />
+      <line x1="44" y1="32" x2="44" y2="42" stroke="var(--accent)" strokeWidth="1.2" opacity="0.65" />
+      <line x1="56" y1="32" x2="56" y2="42" stroke="var(--accent)" strokeWidth="1.2" opacity="0.65" />
+      <rect x="36" y="48" width="6" height="6" stroke="var(--illustration-stroke)" strokeWidth="1" fill="none" opacity="0.65" />
+      <rect x="47" y="48" width="6" height="6" stroke="var(--illustration-stroke)" strokeWidth="1" fill="none" opacity="0.65" />
+      <rect x="58" y="48" width="6" height="6" stroke="var(--illustration-stroke)" strokeWidth="1" fill="none" opacity="0.65" />
       {/* チャットアイコン */}
-      <rect x="92" y="32" width="36" height="34" rx="5" stroke="var(--illustration-stroke)" strokeWidth="0.9" fill="var(--illustration-fill)" opacity="0.45" />
-      <line x1="100" y1="44" x2="120" y2="44" stroke="var(--illustration-stroke)" strokeWidth="0.7" opacity="0.35" />
-      <line x1="100" y1="52" x2="116" y2="52" stroke="var(--illustration-stroke)" strokeWidth="0.7" opacity="0.28" />
-      <path d="M92 62 L92 68 L99 63 L128 63" stroke="var(--illustration-stroke)" strokeWidth="0.5" fill="none" opacity="0.3" />
+      <rect x="92" y="32" width="36" height="34" rx="5" stroke="var(--accent)" strokeWidth="1.5" fill="var(--illustration-fill)" opacity="0.75" />
+      <line x1="100" y1="44" x2="120" y2="44" stroke="var(--illustration-stroke)" strokeWidth="1.2" opacity="0.6" />
+      <line x1="100" y1="52" x2="116" y2="52" stroke="var(--illustration-stroke)" strokeWidth="1.2" opacity="0.5" />
+      <path d="M92 62 L92 68 L99 63 L128 63" stroke="var(--illustration-stroke)" strokeWidth="1" fill="none" opacity="0.5" />
       {/* バーチャート */}
-      <line x1="32" y1="140" x2="128" y2="140" stroke="var(--illustration-stroke)" strokeWidth="0.6" opacity="0.3" />
-      <rect x="40"  y="124" width="10" height="16" stroke="var(--accent)" strokeWidth="0.8" fill="var(--illustration-fill)" opacity="0.45" />
-      <rect x="55"  y="112" width="10" height="28" stroke="var(--accent)" strokeWidth="0.8" fill="var(--illustration-fill)" opacity="0.55" />
-      <rect x="70"  y="118" width="10" height="22" stroke="var(--accent)" strokeWidth="0.8" fill="var(--illustration-fill)" opacity="0.45" />
-      <rect x="85"  y="106" width="10" height="34" stroke="var(--accent)" strokeWidth="0.8" fill="var(--illustration-fill)" opacity="0.55" />
-      <rect x="100" y="112" width="10" height="28" stroke="var(--accent)" strokeWidth="0.8" fill="var(--illustration-fill)" opacity="0.45" />
-      <rect x="115" y="120" width="10" height="20" stroke="var(--accent)" strokeWidth="0.8" fill="var(--illustration-fill)" opacity="0.4" />
+      <line x1="32" y1="140" x2="128" y2="140" stroke="var(--illustration-stroke)" strokeWidth="1" opacity="0.55" />
+      <rect x="40"  y="124" width="10" height="16" stroke="var(--accent)" strokeWidth="1.5" fill="var(--illustration-fill)" opacity="0.7" />
+      <rect x="55"  y="112" width="10" height="28" stroke="var(--accent)" strokeWidth="1.5" fill="var(--illustration-fill)" opacity="0.85" />
+      <rect x="70"  y="118" width="10" height="22" stroke="var(--accent)" strokeWidth="1.5" fill="var(--illustration-fill)" opacity="0.7" />
+      <rect x="85"  y="106" width="10" height="34" stroke="var(--accent)" strokeWidth="1.5" fill="var(--illustration-fill)" opacity="0.85" />
+      <rect x="100" y="112" width="10" height="28" stroke="var(--accent)" strokeWidth="1.5" fill="var(--illustration-fill)" opacity="0.7" />
+      <rect x="115" y="120" width="10" height="20" stroke="var(--accent)" strokeWidth="1.5" fill="var(--illustration-fill)" opacity="0.65" />
     </svg>
   );
 }

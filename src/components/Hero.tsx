@@ -23,37 +23,37 @@ export default function Hero() {
             top: '50%',
             right: '0',
             transform: 'translateY(-55%)',
-            width: 'clamp(200px, 28vw, 320px)',
-            opacity: 0.55,
+            width: 'clamp(280px, 38vw, 460px)',
+            opacity: 0.9,
             animation: 'heroFloat 15s ease-in-out infinite alternate',
             pointerEvents: 'none',
           }}
           className="hero-deco"
         >
           {/* スクリーン枠 */}
-          <rect x="40" y="10" width="180" height="118" rx="5" stroke="var(--accent)" strokeWidth="1.2" fill="var(--illustration-fill)" opacity="0.6" />
+          <rect x="40" y="10" width="180" height="118" rx="5" stroke="var(--accent)" strokeWidth="1.8" fill="var(--illustration-fill)" opacity="0.85" />
           {/* スクリーン内ライン */}
-          <line x1="60" y1="36" x2="195" y2="36" stroke="var(--illustration-stroke)" strokeWidth="1" opacity="0.4" />
-          <line x1="60" y1="52" x2="175" y2="52" stroke="var(--illustration-stroke)" strokeWidth="1" opacity="0.3" />
+          <line x1="60" y1="36" x2="195" y2="36" stroke="var(--illustration-stroke)" strokeWidth="1.5" opacity="0.6" />
+          <line x1="60" y1="52" x2="175" y2="52" stroke="var(--illustration-stroke)" strokeWidth="1.5" opacity="0.5" />
           {/* バーチャート */}
-          <rect x="80"  y="80" width="10" height="30" stroke="var(--accent)" strokeWidth="0.8" fill="var(--illustration-fill)" opacity="0.45" />
-          <rect x="96"  y="68" width="10" height="42" stroke="var(--accent)" strokeWidth="0.8" fill="var(--illustration-fill)" opacity="0.55" />
-          <rect x="112" y="74" width="10" height="36" stroke="var(--accent)" strokeWidth="0.8" fill="var(--illustration-fill)" opacity="0.45" />
-          <rect x="128" y="60" width="10" height="50" stroke="var(--accent)" strokeWidth="0.8" fill="var(--illustration-fill)" opacity="0.55" />
-          <rect x="144" y="68" width="10" height="42" stroke="var(--accent)" strokeWidth="0.8" fill="var(--illustration-fill)" opacity="0.45" />
-          <line x1="72" y1="111" x2="165" y2="111" stroke="var(--illustration-stroke)" strokeWidth="0.5" opacity="0.25" />
+          <rect x="80"  y="80" width="10" height="30" stroke="var(--accent)" strokeWidth="1.5" fill="var(--illustration-fill)" opacity="0.7" />
+          <rect x="96"  y="68" width="10" height="42" stroke="var(--accent)" strokeWidth="1.5" fill="var(--illustration-fill)" opacity="0.8" />
+          <rect x="112" y="74" width="10" height="36" stroke="var(--accent)" strokeWidth="1.5" fill="var(--illustration-fill)" opacity="0.7" />
+          <rect x="128" y="60" width="10" height="50" stroke="var(--accent)" strokeWidth="1.5" fill="var(--illustration-fill)" opacity="0.85" />
+          <rect x="144" y="68" width="10" height="42" stroke="var(--accent)" strokeWidth="1.5" fill="var(--illustration-fill)" opacity="0.75" />
+          <line x1="72" y1="111" x2="165" y2="111" stroke="var(--illustration-stroke)" strokeWidth="1" opacity="0.45" />
           {/* キーボードベース */}
-          <path d="M15 128 L40 128 L220 128 L245 128 L258 150 L2 150Z" stroke="var(--illustration-stroke)" strokeWidth="1" fill="var(--illustration-fill)" opacity="0.28" />
-          <line x1="38" y1="139" x2="222" y2="139" stroke="var(--illustration-stroke)" strokeWidth="0.5" opacity="0.18" />
+          <path d="M15 128 L40 128 L220 128 L245 128 L258 150 L2 150Z" stroke="var(--illustration-stroke)" strokeWidth="1.5" fill="var(--illustration-fill)" opacity="0.55" />
+          <line x1="38" y1="139" x2="222" y2="139" stroke="var(--illustration-stroke)" strokeWidth="1" opacity="0.4" />
           {/* 植物 — 茎 */}
-          <line x1="252" y1="150" x2="252" y2="95" stroke="var(--accent)" strokeWidth="1.2" opacity="0.5" />
+          <line x1="252" y1="150" x2="252" y2="95" stroke="var(--accent)" strokeWidth="1.8" opacity="0.8" />
           {/* 葉 右 */}
-          <path d="M252 108 C260 98, 274 101, 270 114 C266 120, 254 117, 252 108Z" stroke="var(--accent)" strokeWidth="1" fill="var(--illustration-fill)" opacity="0.5" />
+          <path d="M252 108 C260 98, 274 101, 270 114 C266 120, 254 117, 252 108Z" stroke="var(--accent)" strokeWidth="1.5" fill="var(--illustration-fill)" opacity="0.8" />
           {/* 葉 左 */}
-          <path d="M252 120 C244 110, 230 113, 234 126 C238 132, 250 129, 252 120Z" stroke="var(--accent)" strokeWidth="1" fill="var(--illustration-fill)" opacity="0.4" />
+          <path d="M252 120 C244 110, 230 113, 234 126 C238 132, 250 129, 252 120Z" stroke="var(--accent)" strokeWidth="1.5" fill="var(--illustration-fill)" opacity="0.7" />
           {/* 鉢 */}
-          <path d="M244 150 L247 164 L257 164 L260 150Z" stroke="var(--illustration-stroke)" strokeWidth="1" fill="var(--illustration-fill)" opacity="0.38" />
-          <line x1="243" y1="156" x2="261" y2="156" stroke="var(--illustration-stroke)" strokeWidth="0.5" opacity="0.2" />
+          <path d="M244 150 L247 164 L257 164 L260 150Z" stroke="var(--illustration-stroke)" strokeWidth="1.5" fill="var(--illustration-fill)" opacity="0.65" />
+          <line x1="243" y1="156" x2="261" y2="156" stroke="var(--illustration-stroke)" strokeWidth="1" opacity="0.45" />
         </svg>
 
         <p
@@ -83,7 +83,8 @@ export default function Hero() {
             maxWidth: '640px',
           }}
         >
-          複雑を、<em style={{ fontStyle: 'normal', color: 'var(--accent)' }}>シンプル</em>に<br />再設計する。
+          複雑を、<br />
+          <em style={{ fontStyle: 'normal', color: 'var(--accent)' }}>シンプル</em>に再設計する。
         </h1>
 
         <p

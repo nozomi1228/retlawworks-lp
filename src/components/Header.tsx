@@ -52,13 +52,19 @@ export default function Header() {
           RetlawWorks
         </a>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
-          <nav style={{ display: 'flex', gap: '2.2rem', alignItems: 'center' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+          <nav style={{ display: 'flex', gap: '1.6rem', alignItems: 'center' }} className="desktop-nav">
             <a href="#solutions" className="nav-link">
-              できること <span style={{ fontSize: '0.6rem', color: 'var(--text-dim)', marginLeft: '0.3rem' }}>Solutions</span>
+              できること <span style={{ fontSize: '0.55rem', color: 'var(--text-dim)', marginLeft: '0.2rem' }}>Solutions</span>
+            </a>
+            <a href="#about" className="nav-link">
+              私たちについて <span style={{ fontSize: '0.55rem', color: 'var(--text-dim)', marginLeft: '0.2rem' }}>About</span>
+            </a>
+            <a href="#voice" className="nav-link">
+              お客様の声 <span style={{ fontSize: '0.55rem', color: 'var(--text-dim)', marginLeft: '0.2rem' }}>Voice</span>
             </a>
             <a href="#flow" className="nav-link">
-              ご相談の流れ <span style={{ fontSize: '0.6rem', color: 'var(--text-dim)', marginLeft: '0.3rem' }}>Flow</span>
+              ご相談の流れ <span style={{ fontSize: '0.55rem', color: 'var(--text-dim)', marginLeft: '0.2rem' }}>Flow</span>
             </a>
             <a
               href="https://coconala.com/services/4098737?ref=top_histories&ref_kind=home&ref_no=1"
@@ -66,14 +72,15 @@ export default function Header() {
               rel="noopener noreferrer"
               style={{
                 fontFamily: "'Glacial Indifference', sans-serif",
-                fontSize: '0.72rem',
+                fontSize: '0.68rem',
                 letterSpacing: '0.08em',
                 color: 'var(--bg-primary)',
                 background: 'var(--accent)',
-                padding: '0.5rem 1.1rem',
+                padding: '0.5rem 1rem',
                 borderRadius: '2px',
                 textDecoration: 'none',
                 transition: 'background 0.3s ease, transform 0.2s ease',
+                whiteSpace: 'nowrap',
               }}
               onMouseEnter={(e) => {
                 (e.currentTarget as HTMLElement).style.background = 'var(--accent-light)';
@@ -84,7 +91,7 @@ export default function Header() {
                 (e.currentTarget as HTMLElement).style.transform = '';
               }}
             >
-              まずは相談する <span style={{ fontSize: '0.6rem', color: 'rgba(255,255,255,0.55)', marginLeft: '0.3rem' }}>Contact</span>
+              まずは相談する <span style={{ fontSize: '0.55rem', color: 'rgba(255,255,255,0.55)', marginLeft: '0.2rem' }}>Contact</span>
             </a>
           </nav>
 
@@ -123,6 +130,8 @@ export default function Header() {
       >
         {[
           { href: '#solutions', label: 'できること' },
+          { href: '#about',     label: '私たちについて' },
+          { href: '#voice',     label: 'お客様の声' },
           { href: '#flow',      label: 'ご相談の流れ' },
           { href: '#cta',       label: 'まずは相談する' },
         ].map(({ href, label }) => (

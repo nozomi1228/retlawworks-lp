@@ -193,4 +193,5 @@ body {
 
 @media (max-width: 768px) {
   .hamburger { display: flex; }
+  .desktop-nav { display: none !important; }
 }
