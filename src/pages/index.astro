@@ -1,23 +1,21 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Loader         from '../components/Loader';
-import CursorFollower from '../components/CursorFollower';
-import Header         from '../components/Header';
-import Hero           from '../components/Hero';
-import Issues         from '../components/Issues';
-import Solutions      from '../components/Solutions';
-import About          from '../components/About';
-import Voice          from '../components/Voice';
-import Flow           from '../components/Flow';
-import CTA            from '../components/CTA';
-import Footer         from '../components/Footer';
+import Loader    from '../components/Loader';
+import Header    from '../components/Header';
+import Hero      from '../components/Hero';
+import Issues    from '../components/Issues';
+import Solutions from '../components/Solutions';
+import About     from '../components/About';
+import Voice     from '../components/Voice';
+import Flow      from '../components/Flow';
+import CTA       from '../components/CTA';
+import Footer    from '../components/Footer';
 import '../styles/global.css';
 ---
 
 <BaseLayout>
-  <Loader         client:only="react" />
-  <CursorFollower client:only="react" />
-  <Header         client:only="react" />
+  <Loader  client:only="react" />
+  <Header  client:only="react" />
   <main>
     <Hero      client:only="react" />
     <Issues    client:only="react" />

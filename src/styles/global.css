@@ -42,6 +42,15 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ── キーフレーム（inline style の animation 名で参照されるため CSS に必要） ── */
+@keyframes fadeIn      { to { opacity: 1; } }
+@keyframes expandLine  { to { width: 80px; } }
+@keyframes heroUp      { from { opacity: 0; transform: translateY(25px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes heroFloat   { 0% { transform: translate(0,0) rotate(0deg); } 100% { transform: translate(-10px,15px) rotate(3deg); } }
+@keyframes scrollPulse { 0%,100% { opacity: 0.2; transform: scaleY(0.5); } 50% { opacity: 0.8; transform: scaleY(1); } }
+@keyframes svgRotate   { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes breathe     { 0%,100% { opacity: 0.3; } 50% { opacity: 0.7; } }
+
 *, *::before, *::after {
   margin: 0;
   padding: 0;
@@ -63,7 +72,7 @@ body {
   overflow-x: hidden;
 }
 
-/* reveal アニメーション — JSのIntersectionObserverで .visible を付与 */
+/* ── Reveal アニメーション ── */
 .reveal {
   opacity: 0;
   transform: translateY(35px);
@@ -80,7 +89,7 @@ body {
 .reveal-delay-6 { transition-delay: 0.6s; }
 .reveal-delay-7 { transition-delay: 0.7s; }
 
-/* ナビゲーションリンク — 下線が左から右へ */
+/* ── ナビゲーション下線アニメーション ── */
 .nav-link {
   position: relative;
   font-family: 'Glacial Indifference', sans-serif;
@@ -103,7 +112,7 @@ body {
 .nav-link:hover { color: var(--text-primary); }
 .nav-link:hover::after { width: 100%; }
 
-/* CTAボタン — sheen effect */
+/* ── CTAボタン ── */
 .cta-btn {
   display: inline-flex;
   align-items: center;
@@ -160,7 +169,7 @@ body {
 .cta-btn:hover .cta-arrow,
 .cta-btn-ghost:hover .cta-arrow { transform: translateX(4px); }
 
-/* ハンバーガーメニュー */
+/* ── ハンバーガーメニュー ── */
 .hamburger {
   display: none;
   flex-direction: column;
