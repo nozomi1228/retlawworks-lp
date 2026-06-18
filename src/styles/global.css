@@ -14,28 +14,41 @@
 }
 
 :root {
-  --bg-primary:    #eee9e1;
-  --bg-secondary:  #f4f1eb;
-  --bg-tertiary:   #e6e2da;
-  --bg-card:       #f4f1eb;
-  --bg-card-hover: #eae5dd;
-  --bg-highlight:  linear-gradient(135deg, #f1eee8, #f8f5f0);
-  --text-primary:  #1a1a1a;
-  --text-secondary:#282828;
-  --text-muted:    #484848;
-  --text-dim:      #5a5a5a;
-  --accent:        #8b7355;
-  --accent-light:  #a68b6b;
-  --accent-dim:    rgba(139, 115, 85, 0.08);
-  --accent-glow:   rgba(139, 115, 85, 0.15);
-  --border:        rgba(0, 0, 0, 0.07);
-  --border-accent: rgba(139, 115, 85, 0.2);
-  --header-bg:     rgba(238, 233, 225, 0.92);
-  --loader-bg:     #eee9e1;
-  --illustration-stroke: #b0a090;
-  --illustration-fill:   rgba(139, 115, 85, 0.05);
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.07);
+  /* ── 背景 ── */
+  --bg-primary:    #F6F3EC;
+  --bg-secondary:  #F6F3EC;
+  --bg-tertiary:   #F0EDE6;
+  --bg-card:       #FAF8F2;
+  --bg-card-hover: #EEEBE3;
+  --bg-highlight:  linear-gradient(135deg, #FAF8F2, #F6F3EC);
+
+  /* ── テキスト ── */
+  --text-primary:  #1A2A45;
+  --text-secondary:#6B655B;
+  --text-muted:    #6B655B;
+  --text-dim:      #8A837A;
+
+  /* ── アクセント（ゴールド） ── */
+  --accent:        #A8804A;
+  --accent-light:  #C9A66B;
+  --accent-dim:    rgba(168, 128, 74, 0.09);
+  --accent-glow:   rgba(168, 128, 74, 0.22);
+
+  /* ── ボーダー ── */
+  --border:        rgba(26, 42, 69, 0.10);
+  --border-accent: rgba(168, 128, 74, 0.28);
+
+  /* ── ヘッダー・ローダー ── */
+  --header-bg:     rgba(246, 243, 236, 0.95);
+  --loader-bg:     #F6F3EC;
+
+  /* ── イラスト ── */
+  --illustration-stroke: rgba(26, 42, 69, 0.20);
+  --illustration-fill:   rgba(168, 128, 74, 0.07);
+
+  /* ── シャドウ ── */
+  --shadow-sm: 0 1px 3px rgba(26, 42, 69, 0.06);
+  --shadow-md: 0 4px 20px rgba(26, 42, 69, 0.09);
 }
 
 @tailwind base;
@@ -64,7 +77,7 @@ html {
 }
 
 body {
-  font-family: 'Glacial Indifference', 'Noto Sans JP', sans-serif;
+  font-family: 'Inter', sans-serif;
   background-color: var(--bg-primary);
   color: var(--text-primary);
   line-height: 1.8;
@@ -72,27 +85,57 @@ body {
   overflow-x: hidden;
 }
 
+h1, h2, h3 {
+  font-family: 'Fraunces', Georgia, serif;
+}
+
 /* ── Reveal アニメーション ── */
 .reveal {
   opacity: 0;
-  transform: translateY(35px);
+  transform: translateY(24px);
   transition:
-    opacity  0.8s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity   1.1s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .reveal.visible { opacity: 1; transform: translateY(0); }
-.reveal-delay-1 { transition-delay: 0.1s; }
-.reveal-delay-2 { transition-delay: 0.2s; }
-.reveal-delay-3 { transition-delay: 0.3s; }
-.reveal-delay-4 { transition-delay: 0.4s; }
-.reveal-delay-5 { transition-delay: 0.5s; }
-.reveal-delay-6 { transition-delay: 0.6s; }
-.reveal-delay-7 { transition-delay: 0.7s; }
+/* stagger: 0.12s 刻みで連鎖 */
+.reveal-delay-1 { transition-delay: 0.12s; }
+.reveal-delay-2 { transition-delay: 0.24s; }
+.reveal-delay-3 { transition-delay: 0.36s; }
+.reveal-delay-4 { transition-delay: 0.48s; }
+.reveal-delay-5 { transition-delay: 0.60s; }
+.reveal-delay-6 { transition-delay: 0.72s; }
+.reveal-delay-7 { transition-delay: 0.84s; }
+
+/* ── セクション区切りゴールドライン ── */
+.gold-line {
+  height: 1px;
+  width: 60px;
+  background: #C9A66B;
+  margin-bottom: 1.4rem;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.gold-line.visible { transform: scaleX(1); }
+
+/* ── モーション軽減対応 ── */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .gold-line {
+    transform: scaleX(1);
+    transition: none;
+  }
+}
 
 /* ── ナビゲーション下線アニメーション ── */
 .nav-link {
   position: relative;
-  font-family: 'Glacial Indifference', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.72rem;
   letter-spacing: 0.08em;
   color: var(--text-muted);
@@ -117,20 +160,21 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  font-family: 'Glacial Indifference', 'Noto Sans JP', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.82rem;
   letter-spacing: 0.06em;
   color: var(--bg-primary);
-  background: var(--accent);
+  background: var(--text-primary);
   padding: 1rem 2.4rem;
   border: none;
   text-decoration: none;
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 .cta-btn:hover {
+  background: var(--accent-light);
   transform: translateY(-2px);
   box-shadow: 0 6px 25px var(--accent-glow);
 }
@@ -150,7 +194,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  font-family: 'Glacial Indifference', 'Noto Sans JP', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.78rem;
   letter-spacing: 0.06em;
   color: var(--accent);

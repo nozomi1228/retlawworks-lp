@@ -1,27 +1,18 @@
 import { useRef } from 'react';
 import { useRevealAnimation } from '../hooks/useIntersectionObserver';
 
-const voices = [
+const promises = [
   {
-    industry: 'Italian Restaurant',
-    stars: '★★★★★',
-    problem: 'お悩み：予約の電話対応に追われ、ランチタイムの接客に集中できなかった',
-    text: 'ネット予約の導入で、営業中の電話がほぼゼロに。正直、もっと早くお願いすればよかったです。「こんな初歩的なことも聞いていいのかな」と最初は不安でしたが、本当に丁寧に対応してくださって、ITアレルギーの自分でも安心でした。',
-    name: '— 都内イタリアン オーナー K.T様',
+    title: 'A plan made entirely around your family',
+    desc: "Never a copy-paste template — every detail is tailored to you.",
   },
   {
-    industry: 'Hair Salon',
-    stars: '★★★★★',
-    problem: 'お悩み：LINE公式を作ったまま放置。リピーター施策が何もできていなかった',
-    text: 'カウンセリングで「まずLINEだけに集中しましょう」と優先順位を整理してもらえたのが大きかったです。自動応答の設定後、リピート予約率が目に見えて上がりました。技術的なことは全部お任せできるのが本当にありがたい。',
-    name: '— 横浜市 美容サロン オーナー M.S様',
+    title: "No upselling — just what's actually worth your money",
+    desc: "I'll tell you what's worth it — and what isn't.",
   },
   {
-    industry: 'Clinic',
-    stars: '★★★★★',
-    problem: 'お悩み：Googleマップの情報が古いまま。新規の患者さんに見つけてもらえていない気がしていた',
-    text: 'MEO対策をしていただいてから、「Googleで見つけました」という新規の方が明らかに増えました。アクションプランで今後やるべきことも明確になり、ひとりで抱えていたモヤモヤが一気に晴れた感覚です。',
-    name: '— 川崎市 内科クリニック 院長 Y.N様',
+    title: 'Quick, clear replies in writing',
+    desc: 'No language barrier, no confusion — just straightforward help.',
   },
 ];
 
@@ -36,16 +27,17 @@ export default function Voice() {
         ref={sectionRef}
         style={{ maxWidth: '1100px', margin: '0 auto', padding: '7rem 2.5rem' }}
       >
+        <div className="gold-line" />
         <div className="reveal" style={{ marginBottom: '3.5rem' }}>
-          <p style={{ fontFamily: "'Glacial Indifference', sans-serif", fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: '1.2rem' }}>Voice</p>
-          <h2 style={{ fontFamily: "'Noto Sans JP', sans-serif", fontSize: 'clamp(1.6rem, 3.5vw, 2.2rem)', fontWeight: 500, lineHeight: 1.6, color: 'var(--text-primary)' }}>
-            ご利用いただいた方の声
+          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: '1.2rem' }}>Promise</p>
+          <h2 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 'clamp(1.6rem, 3.5vw, 2.2rem)', fontWeight: 500, lineHeight: 1.4, color: 'var(--text-primary)' }}>
+            What you can expect
           </h2>
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem' }} className="voice-grid">
-          {voices.map((v, i) => (
-            <VoiceCard key={i} voice={v} delay={i + 1} />
+          {promises.map((p, i) => (
+            <PromiseCard key={i} promise={p} delay={i + 1} />
           ))}
         </div>
       </section>
@@ -59,7 +51,7 @@ export default function Voice() {
   );
 }
 
-function VoiceCard({ voice, delay }: { voice: typeof voices[0]; delay: number }) {
+function PromiseCard({ promise, delay }: { promise: typeof promises[0]; delay: number }) {
   return (
     <div
       className={`reveal reveal-delay-${delay}`}
@@ -67,11 +59,9 @@ function VoiceCard({ voice, delay }: { voice: typeof voices[0]; delay: number })
       onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = 'var(--shadow-md)'; }}
       onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = ''; }}
     >
-      <p style={{ fontFamily: "'Glacial Indifference', sans-serif", fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: '0.8rem' }}>{voice.industry}</p>
-      <p style={{ color: 'var(--accent)', fontSize: '0.75rem', letterSpacing: '0.1em', marginBottom: '0.8rem' }}>{voice.stars}</p>
-      <p style={{ fontFamily: "'Noto Sans JP', sans-serif", fontSize: '0.76rem', fontWeight: 300, color: 'var(--text-muted)', marginBottom: '1rem', paddingBottom: '1rem', borderBottom: '1px solid var(--border)' }}>{voice.problem}</p>
-      <p style={{ fontFamily: "'Noto Sans JP', sans-serif", fontSize: '0.85rem', fontWeight: 300, color: 'var(--text-secondary)', lineHeight: 1.9, marginBottom: '1.2rem', flexGrow: 1 }}>{voice.text}</p>
-      <p style={{ fontFamily: "'Glacial Indifference', sans-serif", fontSize: '0.72rem', color: 'var(--text-dim)', letterSpacing: '0.05em' }}>{voice.name}</p>
+      <div style={{ width: '24px', height: '1px', background: 'var(--accent)', marginBottom: '1.4rem', opacity: 0.6 }} />
+      <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '0.92rem', fontWeight: 700, color: 'var(--text-primary)', lineHeight: 1.5, marginBottom: '0.8rem', flexGrow: 1 }}>{promise.title}</p>
+      <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '0.8rem', fontWeight: 300, color: 'var(--text-muted)', lineHeight: 1.8 }}>{promise.desc}</p>
     </div>
   );
 }

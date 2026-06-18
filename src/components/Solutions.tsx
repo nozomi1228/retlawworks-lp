@@ -2,13 +2,16 @@ import { useRef } from 'react';
 import { useRevealAnimation } from '../hooks/useIntersectionObserver';
 
 const cards = [
-  { title: 'MEO対策',         en: 'MEO Optimization',    desc: 'Googleマップの情報設計で、ローカル検索からの集客を強化' },
-  { title: 'LINE公式構築',    en: 'LINE Setup',           desc: '公式アカウントの構築から自動応答の設計まで' },
-  { title: 'ネット予約の導入', en: 'Reservation System',  desc: '無料ツールを活用した予約導線の構築。電話対応コストを削減' },
-  { title: 'AI秘書システム',   en: 'AI Secretary',         desc: '問い合わせ対応・事務処理をAIで自動化' },
-  { title: 'Excel・自動化',    en: 'Data & Automation',    desc: '売上管理・シフト作成をExcel/GASで仕組み化' },
-  { title: 'チャットボット導入', en: 'Chatbot Integration', desc: 'よくある質問への自動応答で、対応工数を最小化' },
-  { title: 'お店のマニュアル作成', en: 'Operations Manual', desc: 'スマホ対応の業務マニュアルで、属人化を解消' },
+  {
+    title: 'Your personal Tokyo Disney plan',
+    price: 'From $300',
+    desc: 'A custom day-by-day strategy built around your family — ride priorities, timing, dining, and a foolproof payment setup. Delivered as a clear, easy-to-follow guide.',
+  },
+  {
+    title: "The Tokyo fan's guide, ready to download",
+    price: 'From $25',
+    desc: "A self-guided PDF covering the essentials — how to buy tickets that actually work, app setup, and the timing tricks locals use. Perfect if you'd rather plan it yourself.",
+  },
 ];
 
 /* タブレット＋ダッシュボード SVG（イラスト左、テキスト右） */
@@ -63,53 +66,19 @@ export default function Solutions() {
             <TabletSVG />
           </div>
           <div>
+            <div className="gold-line" />
             <div className="reveal">
-              <p style={{ fontFamily: "'Glacial Indifference', sans-serif", fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: '1.2rem' }}>Solutions</p>
-              <h2 style={{ fontFamily: "'Noto Sans JP', sans-serif", fontSize: 'clamp(1.6rem, 3.5vw, 2.2rem)', fontWeight: 500, lineHeight: 1.6, color: 'var(--text-primary)', marginBottom: '1.5rem' }}>
-                たとえば、こんなアプローチがあります。
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: '1.2rem' }}>Solutions</p>
+              <h2 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 'clamp(1.6rem, 3.5vw, 2.2rem)', fontWeight: 500, lineHeight: 1.4, color: 'var(--text-primary)', marginBottom: '1.5rem' }}>
+                Everything sorted,<br />before you even land
               </h2>
-            </div>
-            <p className="reveal" style={{ fontFamily: "'Noto Sans JP', sans-serif", fontSize: '0.88rem', fontWeight: 300, color: 'var(--text-secondary)', lineHeight: 2, marginBottom: '2.5rem' }}>
-              まずは課題整理カウンセリングで、あなたのお店の課題を整理します。<br />
-              60分後には&#34;明日、何から手をつけるべきか&#34;がクリアになります。
-            </p>
-
-            {/* メインサービスカード */}
-            <div
-              className="reveal"
-              style={{
-                background: 'linear-gradient(135deg, #f1eee8, #f8f5f0)',
-                border: '1px solid var(--border-accent)',
-                padding: '2.5rem',
-                position: 'relative',
-                overflow: 'hidden',
-                boxShadow: 'var(--shadow-md)',
-              }}
-            >
-              <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '2px', background: 'linear-gradient(90deg, var(--accent), transparent)' }} />
-              <p style={{ fontFamily: "'Glacial Indifference', sans-serif", fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: '0.7rem' }}>First Step</p>
-              <h3 style={{ fontFamily: "'Noto Sans JP', sans-serif", fontSize: 'clamp(1.1rem, 2.5vw, 1.4rem)', fontWeight: 500, color: 'var(--text-primary)', marginBottom: '0.3rem' }}>課題整理カウンセリング</h3>
-              <p style={{ fontFamily: "'Glacial Indifference', sans-serif", fontSize: '0.68rem', color: 'var(--text-dim)', letterSpacing: '0.1em', marginBottom: '1rem' }}>Issue Assessment Counseling</p>
-              <p style={{ fontFamily: "'Noto Sans JP', sans-serif", fontSize: '0.85rem', fontWeight: 300, color: 'var(--text-secondary)', lineHeight: 1.9, marginBottom: '1.3rem' }}>
-                課題の棚卸しと優先順位の整理。あなたのお店専用の「アクションプラン」を作成します。
-              </p>
-              <p style={{ fontFamily: "'Glacial Indifference', sans-serif", fontSize: '0.78rem', color: 'var(--accent)', marginBottom: '1.6rem', letterSpacing: '0.04em' }}>
-                お試し価格 <strong style={{ fontSize: '1.4rem', fontWeight: 700 }}>¥2,000</strong>
-              </p>
-              <a href="https://coconala.com/services/4098737?ref=top_histories&ref_kind=home&ref_no=1" className="cta-btn" target="_blank" rel="noopener noreferrer">
-                相談してみる <span className="cta-arrow">→</span>
-              </a>
             </div>
           </div>
         </div>
 
-        <p className="reveal" style={{ fontFamily: "'Glacial Indifference', sans-serif", fontSize: '0.68rem', letterSpacing: '0.12em', color: 'var(--text-dim)', marginBottom: '1.5rem', paddingTop: '1.5rem', borderTop: '1px solid var(--border)' }}>
-          ▼ カウンセリング後にご提案できるソリューションの一例
-        </p>
-
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1px', background: 'var(--border)' }}>
+        <div className="solutions-cards" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1px', background: 'var(--border)' }}>
           {cards.map((card, i) => (
-            <SolutionCard key={card.title} card={card} delay={Math.min(i + 1, 7)} />
+            <SolutionCard key={card.title} card={card} delay={i + 1} />
           ))}
         </div>
       </section>
@@ -118,6 +87,7 @@ export default function Solutions() {
         @media (max-width: 768px) {
           .solutions-intro { grid-template-columns: 1fr !important; }
           .solutions-illust-left { display: none !important; }
+          .solutions-cards { grid-template-columns: 1fr !important; }
         }
       `}</style>
     </div>
@@ -147,9 +117,9 @@ function SolutionCard({ card, delay }: { card: typeof cards[0]; delay: number })
       }}
     >
       <div className="card-top-bar" style={{ position: 'absolute', top: 0, left: 0, width: 0, height: '2px', background: 'var(--accent)', transition: 'width 0.35s ease' }} />
-      <p style={{ fontFamily: "'Noto Sans JP', sans-serif", fontSize: '0.92rem', fontWeight: 500, color: 'var(--text-primary)', marginBottom: '0.2rem' }}>{card.title}</p>
-      <p style={{ fontFamily: "'Glacial Indifference', sans-serif", fontSize: '0.6rem', color: 'var(--text-dim)', letterSpacing: '0.08em', marginBottom: '0.7rem' }}>{card.en}</p>
-      <p style={{ fontFamily: "'Noto Sans JP', sans-serif", fontSize: '0.8rem', fontWeight: 300, color: 'var(--text-muted)', lineHeight: 1.7 }}>{card.desc}</p>
+      <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '0.92rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '0.3rem' }}>{card.title}</p>
+      <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '0.68rem', color: 'var(--accent)', letterSpacing: '0.06em', marginBottom: '0.8rem', opacity: 0.75 }}>{card.price}</p>
+      <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '0.82rem', fontWeight: 300, color: 'var(--text-muted)', lineHeight: 1.8 }}>{card.desc}</p>
     </div>
   );
 }

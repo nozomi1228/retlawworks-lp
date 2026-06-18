@@ -2,11 +2,26 @@ import { useRef } from 'react';
 import { useRevealAnimation } from '../hooks/useIntersectionObserver';
 
 const problems = [
-  '予約対応に追われ、接客の質が下がっていると感じる',
-  'オンライン上の店舗情報が最適化されていない',
-  '導入したツールが運用に乗らず、放置されている',
-  '日々のオペレーションに手作業が多く、スケールしない',
-  '課題の優先順位が見えず、何から着手すべきかわからない',
+  {
+    title: 'Your credit card may not work',
+    desc: "Overseas Visa and Mastercard are often declined by Japan's 3-D Secure system — sometimes locking you out for 24 hours.",
+  },
+  {
+    title: "The best rides require an in-app purchase you can't prepare in advance",
+    desc: 'Premier Access can only be bought inside the park on the day — and the same card issues can strike at the worst moment.',
+  },
+  {
+    title: 'The official app is powerful but confusing',
+    desc: 'Reservations, Premier Access, mobile orders — all run through an app that overwhelms most first-time visitors.',
+  },
+  {
+    title: 'A wrong plan can cost you hours in line',
+    desc: 'Without the right timing and route, families lose half their day waiting instead of experiencing.',
+  },
+  {
+    title: "The best tips never reach you in English",
+    desc: "The most current strategies live in Japanese — on local apps, blogs, and communities you can't easily access.",
+  },
 ];
 
 export default function Issues() {
@@ -23,22 +38,26 @@ export default function Issues() {
         {/* テキスト左、イラスト右 */}
         <div style={{ display: 'grid', gridTemplateColumns: '1fr auto', gap: '5rem', alignItems: 'start' }} className="issues-grid">
           <div>
+            <div className="gold-line" />
             <div className="reveal">
-              <p style={{ fontFamily: "'Glacial Indifference', sans-serif", fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: '1.2rem' }}>Issues</p>
-              <h2 style={{ fontFamily: "'Noto Sans JP', sans-serif", fontSize: 'clamp(1.6rem, 3.5vw, 2.2rem)', fontWeight: 500, lineHeight: 1.6, color: 'var(--text-primary)', marginBottom: '3rem' }}>
-                その忙しさの正体、<br />&#34;仕組みの不在&#34;かもしれません。
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: '1.2rem' }}>Issues</p>
+              <h2 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 'clamp(1.6rem, 3.5vw, 2.2rem)', fontWeight: 500, lineHeight: 1.4, color: 'var(--text-primary)', marginBottom: '3rem' }}>
+                Planning a Tokyo Disney trip<br />is harder than it should be
               </h2>
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column' }}>
-              {problems.map((text, i) => (
+              {problems.map((item, i) => (
                 <div
                   key={i}
                   className={`reveal reveal-delay-${i + 1}`}
                   style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1.2rem 0', borderBottom: '1px solid var(--border)' }}
                 >
                   <div style={{ flexShrink: 0, width: '6px', height: '6px', marginTop: '0.65rem', border: '1px solid var(--accent)', borderRadius: '50%' }} />
-                  <p style={{ fontFamily: "'Noto Sans JP', sans-serif", fontSize: '0.9rem', fontWeight: 300, color: 'var(--text-secondary)', lineHeight: 1.8 }}>{text}</p>
+                  <div>
+                    <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '0.92rem', fontWeight: 700, color: 'var(--text-primary)', lineHeight: 1.5, marginBottom: '0.3rem' }}>{item.title}</p>
+                    <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '0.85rem', fontWeight: 300, color: 'var(--text-secondary)', lineHeight: 1.8 }}>{item.desc}</p>
+                  </div>
                 </div>
               ))}
             </div>

@@ -18,48 +18,106 @@ const {
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500;1,9..144,600&family=Inter:wght@300;400;500;600&display=swap"
     rel="stylesheet"
   />
   <link rel="icon" type="image/png" href="/favicon.png" />
   <style>
-    @keyframes loaderFadeIn  { to { opacity: 1; } }
-    @keyframes loaderExpand  { to { width: 80px; } }
-    @keyframes loaderFadeOut { to { opacity: 0; visibility: hidden; } }
+    /* ── ローダーキーフレーム ── */
+    @keyframes lineExpand {
+      from { transform: scaleX(0); }
+      to   { transform: scaleX(1); }
+    }
+    @keyframes lineFade {
+      from { opacity: 1; }
+      to   { opacity: 0.2; }
+    }
+    @keyframes logoIn {
+      from { opacity: 0; transform: scale(0.94); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+    @keyframes logoOut {
+      from { opacity: 1; transform: scale(1);    filter: blur(0px); }
+      to   { opacity: 0; transform: scale(1.06); filter: blur(2px); }
+    }
+    @keyframes loaderHide {
+      to { opacity: 0; }
+    }
+    /* reduced-motion 用シンプルフェード */
+    @keyframes logoInSimple  { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes logoOutSimple { from { opacity: 1; } to { opacity: 0; } }
 
     #page-loader {
       position: fixed;
       inset: 0;
       z-index: 10000;
-      background: #eee9e1;
+      background: #1A2A45;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: opacity 0.5s ease;
+      /* Phase 5: ローダー本体が 4.2s 後にフェードアウト */
+      animation: loaderHide 0.55s 4.2s ease forwards;
     }
-    #page-loader .loader-logo {
-      font-family: 'Glacial Indifference', 'Georgia', serif;
-      font-size: clamp(1.6rem, 4vw, 2.4rem);
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      color: #8b7355;
-      opacity: 0;
-      animation: loaderFadeIn 0.6s 0.2s ease forwards;
+    .loader-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
     }
-    #page-loader .loader-line {
-      width: 0;
+    .loader-line {
+      width: 220px;
       height: 1px;
-      background: #8b7355;
-      margin: 1rem auto 0;
-      animation: loaderExpand 0.8s 0.5s ease forwards;
+      background: #C9A66B;
+      transform: scaleX(0);
+      transform-origin: center;
+      /*
+        Phase 1: 0〜1.1s — 中央から左右に展開
+        Phase 3: 1.4s〜 — ゴールド線がひっそり薄れる
+      */
+      animation:
+        lineExpand 1.1s 0s    cubic-bezier(0.22, 1, 0.36, 1) forwards,
+        lineFade   0.7s 1.4s  ease-out                        forwards;
+    }
+    .loader-logo {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(1.5rem, 4vw, 2.1rem);
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      color: #F4F1EA;
+      opacity: 0;
+      /*
+        Phase 2: 0.9〜2.0s — 静かにフェードイン
+        Phase 4: 2.9〜4.2s — ほんのり拡大しながら溶けるように消える
+        ※ logoOut は logoIn より後ろに列挙 → CSSカスケードで自動的に上書き
+      */
+      animation:
+        logoIn  1.1s 0.9s ease-out                      forwards,
+        logoOut 1.3s 2.9s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+    .loader-gold { color: #C9A66B; }
+
+    /* prefers-reduced-motion: アニメーションを単純なフェードに簡略化 */
+    @media (prefers-reduced-motion: reduce) {
+      .loader-line {
+        transform: scaleX(1);
+        animation: lineFade 0.3s 0.6s ease-out forwards;
+      }
+      .loader-logo {
+        animation:
+          logoInSimple  0.3s 0.4s ease forwards,
+          logoOutSimple 0.3s 1.4s ease forwards;
+      }
+      #page-loader {
+        animation: loaderHide 0.3s 1.9s ease forwards;
+      }
     }
   </style>
 </head>
 <body>
   <div id="page-loader">
-    <div style="text-align:center">
-      <div class="loader-logo">RetlawWorks</div>
+    <div class="loader-inner">
       <div class="loader-line"></div>
+      <div class="loader-logo">Retlaw<span class="loader-gold">Works</span></div>
     </div>
   </div>
   <slot />

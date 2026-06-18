@@ -17,7 +17,7 @@ export function useRevealAnimation(containerRef: RefObject<Element | null>) {
       { threshold: 0.12, rootMargin: '0px 0px -30px 0px' }
     );
 
-    container.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    container.querySelectorAll('.reveal, .gold-line').forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
   }, []);

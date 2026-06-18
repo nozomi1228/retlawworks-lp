@@ -38,40 +38,35 @@ export default function Header() {
         <a
           href="#"
           style={{
-            fontFamily: "'Glacial Indifference', sans-serif",
+            fontFamily: "'Inter', sans-serif",
             fontSize: '1.2rem',
             fontWeight: 700,
             letterSpacing: '0.15em',
-            color: 'var(--text-primary)',
+            color: scrolled ? 'var(--text-primary)' : '#F4F1EA',
             textDecoration: 'none',
             transition: 'color 0.3s',
           }}
-          onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--accent)')}
-          onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-primary)')}
+          onMouseEnter={(e) => (e.currentTarget.style.color = scrolled ? 'var(--accent)' : '#C9A66B')}
+          onMouseLeave={(e) => (e.currentTarget.style.color = scrolled ? 'var(--text-primary)' : '#F4F1EA')}
         >
           RetlawWorks
         </a>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
           <nav style={{ display: 'flex', gap: '1.6rem', alignItems: 'center' }} className="desktop-nav">
-            <a href="#solutions" className="nav-link">
-              できること <span style={{ fontSize: '0.55rem', color: 'var(--text-dim)', marginLeft: '0.2rem' }}>Solutions</span>
-            </a>
-            <a href="#about" className="nav-link">
-              私たちについて <span style={{ fontSize: '0.55rem', color: 'var(--text-dim)', marginLeft: '0.2rem' }}>About</span>
-            </a>
-            <a href="#voice" className="nav-link">
-              お客様の声 <span style={{ fontSize: '0.55rem', color: 'var(--text-dim)', marginLeft: '0.2rem' }}>Voice</span>
-            </a>
-            <a href="#flow" className="nav-link">
-              ご相談の流れ <span style={{ fontSize: '0.55rem', color: 'var(--text-dim)', marginLeft: '0.2rem' }}>Flow</span>
-            </a>
+            {(() => {
+              const c = scrolled ? undefined : 'rgba(244, 241, 234, 0.8)';
+              return (<>
+                <a href="#solutions" className="nav-link" style={{ color: c }}>Solutions</a>
+                <a href="#about"     className="nav-link" style={{ color: c }}>About</a>
+                <a href="#voice"     className="nav-link" style={{ color: c }}>What to expect</a>
+                <a href="#flow"      className="nav-link" style={{ color: c }}>How it works</a>
+              </>);
+            })()}
             <a
-              href="https://coconala.com/services/4098737?ref=top_histories&ref_kind=home&ref_no=1"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#flow"
               style={{
-                fontFamily: "'Glacial Indifference', sans-serif",
+                fontFamily: "'Inter', sans-serif",
                 fontSize: '0.68rem',
                 letterSpacing: '0.08em',
                 color: 'var(--bg-primary)',
@@ -91,7 +86,7 @@ export default function Header() {
                 (e.currentTarget as HTMLElement).style.transform = '';
               }}
             >
-              まずは相談する <span style={{ fontSize: '0.55rem', color: 'rgba(255,255,255,0.55)', marginLeft: '0.2rem' }}>Contact</span>
+              Get started
             </a>
           </nav>
 
@@ -100,9 +95,9 @@ export default function Header() {
             aria-label="メニュー"
             onClick={toggleMenu}
           >
-            <span />
-            <span />
-            <span />
+            <span style={scrolled ? {} : { background: '#F4F1EA' }} />
+            <span style={scrolled ? {} : { background: '#F4F1EA' }} />
+            <span style={scrolled ? {} : { background: '#F4F1EA' }} />
           </button>
         </div>
       </header>
@@ -129,18 +124,18 @@ export default function Header() {
         }}
       >
         {[
-          { href: '#solutions', label: 'できること' },
-          { href: '#about',     label: '私たちについて' },
-          { href: '#voice',     label: 'お客様の声' },
-          { href: '#flow',      label: 'ご相談の流れ' },
-          { href: '#cta',       label: 'まずは相談する' },
+          { href: '#solutions', label: 'Solutions' },
+          { href: '#about',     label: 'About' },
+          { href: '#voice',     label: 'What to expect' },
+          { href: '#flow',      label: 'How it works' },
+          { href: '#flow',      label: 'Get started' },
         ].map(({ href, label }) => (
           <a
             key={href}
             href={href}
             onClick={closeMenu}
             style={{
-              fontFamily: "'Glacial Indifference', sans-serif",
+              fontFamily: "'Inter', sans-serif",
               fontSize: '1rem',
               letterSpacing: '0.1em',
               color: 'var(--text-primary)',
