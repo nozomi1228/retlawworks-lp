@@ -4,16 +4,19 @@ export interface Props {
   description?: string;
 }
 const {
-  title = 'RetlawWorks | 複雑を、シンプルに再設計する。',
-  description = 'RetlawWorks - 個人店に特化したITコンシェルジュ。店舗運営×テクノロジーのエンドツーエンド支援。',
+  title = 'RetlawWorks · Unlock the Best of Tokyo',
+  description = 'Personal travel help for overseas visitors to Tokyo — food, hidden gems, local manners, and getting around. Plus custom Tokyo Disney planning. Just ask.',
 } = Astro.props;
 ---
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content={description} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
   <title>{title}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
